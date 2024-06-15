@@ -81,7 +81,7 @@
           token: token,
         };
         await axios
-          .post("http://localhost:3000/expense/addExpense", myObj, {
+          .post("http://16.170.255.104:3000/expense/addExpense", myObj, {
             headers: { Authorization: token },
           })
           .then((response) => {
@@ -165,7 +165,7 @@
           }
           const page = 1;
           await axios
-            .get(`http://localhost:3000/expense/expenses/${pages}?page=${page}`, {
+            .get(`http://16.170.255.104:3000/expense/expenses/${pages}?page=${page}`, {
               headers: { Authorization: token },
             })
             .then((response) => {
@@ -185,7 +185,7 @@
           const pages = localStorage.getItem("no_of_pages");
           parentElem.innerHTML = "";
           await axios
-            .get(`http://localhost:3000/expense/expenses/${pages}?page=${page}`, {
+            .get(`http://16.170.255.104:3000/expense/expenses/${pages}?page=${page}`, {
               headers: { Authorization: token },
             })
             .then((response) => {
@@ -214,7 +214,7 @@
             id: itemId,
             amount: amount,
           };
-          await axios.post("http://localhost:3000/expense/delete", myObj, {
+          await axios.post("http://16.170.255.104:3000/expense/delete", myObj, {
             headers: { Authorization: token },
           });
           removeItem(itemId);
@@ -234,7 +234,7 @@
       document.getElementById("rzp-button").onclick = async function (e) {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          "http://localhost:3000/purchase/premiummembership",
+          "http://16.170.255.104:3000/purchase/premiummembership",
           { headers: { Authorization: token } }
         );
         var option = {
@@ -242,7 +242,7 @@
           order_id: response.data.order.id,
           handler: async function (response) {
             const res = await axios.post(
-              "http://localhost:3000/purchase/updatetransactionstatus",
+              "http://16.170.255.104:3000/purchase/updatetransactionstatus",
               {
                 order_id: option.order_id,
                 payment_id: response.razorpay_payment_id,
@@ -276,7 +276,7 @@
         inputElement.onclick = async () => {
           const token = localStorage.getItem("token");
           const response = await axios.get(
-            "http://localhost:3000/premium/showleaderboard",
+            "http://16.170.255.104:3000/premium/showleaderboard",
             { headers: { Authorization: token } }
           );
           var leaderboardelement = document.getElementById("leaderboard");
@@ -295,7 +295,7 @@
         inputElement.onclick = async () => {
           const token = localStorage.getItem("token");
           axios
-            .get("http://localhost:3000/download/expense", {
+            .get("http://16.170.255.104:3000/download/expense", {
               headers: { Authorization: token },
             })
             .then((response) => {
@@ -318,7 +318,7 @@
         try {
           const token = localStorage.getItem("token");
           const response = await axios.get(
-            "http://localhost:3000/download/list",
+            "http://16.170.255.104:3000/download/list",
             { headers: { Authorization: token } }
           );
           for (let i = 0; i < response.data.length; i++) {
