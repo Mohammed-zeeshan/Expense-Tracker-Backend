@@ -45,6 +45,10 @@ app.use(helmet());
 
 app.use(morgan('combined', {stream: accessLogStream}));
 
+app.use((req, res) => {
+    res.sendFile(path.join(__dirname, `public/${req.url}`));
+})
+
 sequelize.authenticate().then(() => {
     console.log("CONNECTION DONE");
 }).catch((err) => {
