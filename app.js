@@ -41,13 +41,13 @@ app.use(premiumFeature);
 
 app.use(password);
 
-app.use(helmet());
-
-app.use(morgan('combined', {stream: accessLogStream}));
-
 app.use((req, res) => {
     res.sendFile(path.join(__dirname, `public/${req.url}`));
 })
+
+app.use(helmet());
+
+app.use(morgan('combined', {stream: accessLogStream}));
 
 sequelize.authenticate().then(() => {
     console.log("CONNECTION DONE");
