@@ -56,7 +56,7 @@
           password: password,
         };
         axios
-          .post("http://http://51.21.76.242:3000/user/login", myObj)
+          .post("http://http://16.170.255.104:3000/user/login", myObj)
           .then((response) => {
             if (response.data.message === "User login successful") {
               window.location.href = "../ExpenseApp/expense.html";
