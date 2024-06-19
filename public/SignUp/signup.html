@@ -72,7 +72,7 @@
           password: password,
         };
         axios
-          .post("http://51.21.76.242/:3000/user/addsignup", myObj)
+          .post("http://51.21.76.242:3000/user/addsignup", myObj)
           .then((response) => {
             document.getElementById("message").innerHTML =
               response.data.message;
