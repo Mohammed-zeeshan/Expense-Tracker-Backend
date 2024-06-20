@@ -12,7 +12,10 @@
     <title>Expense Tracker</title>
   </head>
   <body>
-    <h1>Add Expense</h1>
+    <div class="d-flex flex-row">
+      <h1>Add Expense</h1>
+      <button class="btn btn-danger" onclick="logout()">Logout</button>
+    </div>
     <form>
       <div>
         <label for="amount" class="form-label">Amount</label>
@@ -90,6 +93,9 @@
           .catch((err) => {
             console.log(err);
           });
+      }
+      function logout() {
+        window.location.href = "../LogIn/login.html";
       }
       function parseJwt(token) {
         var base64Url = token.split(".")[1];
